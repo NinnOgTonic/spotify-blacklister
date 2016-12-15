@@ -1,0 +1,24 @@
+-- Creates a notification with information about the currently playing track
+
+-- Main flow
+-- set currentlyPlayingTrack to getCurrentlyPlayingTrack()
+
+return getCurrentlyPlayingJson()
+
+
+-- Method to get the currently playing track
+on getCurrentlyPlayingJson()
+  tell application "Spotify"
+    set currentArtist to artist of current track as string
+    set currentTrack to name of current track as string
+    set currentProgress to player position as string
+
+    return "{
+        \"artist\": \"" & artist of current track & "\",
+        \"track\": \"" & name of current track & "\",
+        \"duration\": \"" & duration of current track & "\",
+        \"progress\": \"" & player position & "\",
+        \"state\": \"" & player state & "\"
+    }"
+  end tell
+end getCurrentlyPlayingJson

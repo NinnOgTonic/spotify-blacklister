@@ -1,0 +1,10 @@
+-- Skip to the next track
+nextTrack()
+
+
+-- Define next track function
+on nextTrack()
+    tell application "Spotify"
+        next track
+    end tell
+end nextTrack
